@@ -1,0 +1,175 @@
+\documentclass[10pt]{article}
+\usepackage{url,parskip,tabularx}
+\usepackage{lipsum}
+\usepackage[margin=0.8in]{geometry}
+\usepackage{hyperref}
+\usepackage{titlesec}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\newcommand{\reference}[5]{
+    \textbf{#1} \newline
+    {\footnotesize #2} \newline
+    #3 \newline
+    \href{mailto:#4}{#4} \newline
+    #5 \newline
+}
+
+\titleformat{\section}{\Large\raggedright\bfseries}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{3pt}{3pt}
+\titleformat{\subsection}{\Large\raggedright}{}{1em}{}
+\titlespacing{\subsection}{0pt}{3pt}{3pt}
+
+\begin{document}
+
+\pagestyle{empty} 
+
+\begin{minipage}[t]{.35\textwidth}
+\vspace*{0pt}
+
+\begin{center}
+{\Huge \bfseries James Barnes\par}
+\end{center}
+
+\bigskip
+\hrule
+\bigskip
+
+\begin{center}
+Geelong, Victoria \\
++61 467 093 491 \\
+\href{mailto:jamesbarnes2505@gmail.com}{jamesbarnes2505@gmail.com} \\
+\href{http://github.com/jamesb2505}{gihthub.com/jamesb2505}
+\end{center}
+
+\bigskip
+\hrule
+\bigskip
+
+\section{Summary}
+
+\begin{flushleft}
+I am a student of computer science, completing a Master of Computer Science at The University of Melbourne. 
+Recently, I completed a Bachelor of Science achieving excellent results.
+My strengths and interests relate to computing and technology.
+\end{flushleft} 
+
+\medskip
+
+\section{Skills}
+
+\textbf{Programming Languages:}
+\begin{flushleft}
+C, Java, Python, JavaScript, Haskell, Prolog, MATLAB, {\fontfamily{cmr}\selectfont \LaTeX{}}, HTML5, CSS. \newline
+\end{flushleft}
+
+\textbf{Software:}
+\begin{flushleft}
+Visual Studio Code, Github, Eclipse, Microsoft Word, Microsoft Excel, Microsoft PowerPoint. \newline
+\end{flushleft}
+
+\textbf{Natural Languages:}
+\begin{flushleft}
+Native English, introductory-level Chinese (Mandarin).
+\end{flushleft}
+
+\medskip
+
+\section{References}
+
+\reference{Professor Timothy Baldwin}
+{The University of Melbourne}
+{Melbourne Laureate Professor}
+{tb@ldwin.net}
+{+61 3 8344 1363}
+
+\medskip
+
+\reference{Michael Broeks}
+{WorkSafe Victoria}
+{Workers' Compensation (Premium) \\ -- Product Owner}
+{michael\_broeks@worksafe.vic.gov.au}
+{+61 4 1113 2922}
+
+\medskip
+
+\reference{Les Kitchen}
+{The University of Melbourne}
+{Honorary Senior Research Fellow}
+{jebref@po.ljk.id.au}
+{\null}
+
+
+\end{minipage}\hfill
+\begin{minipage}[t]{.60\textwidth}
+\vspace*{0pt}
+
+\section{Education}
+
+\textbf{The University of Melbourne, Master of Computer Science} \newline
+{\footnotesize 2020 - Present} \newline
+
+\medskip
+
+\textbf{The University of Melbourne, Bachelor of Science} \newline
+{\footnotesize 2017 - 2019} \newline
+\textbf{Major:} Computing and Software Systems \newline
+\textbf{Grade:} First Class Honours (83.000 WAM) \newline
+
+\medskip
+
+\textbf{Belmont High School} \newline
+{\footnotesize 2011 - 2016}
+\begin{flushleft}
+Select-Entry Accelarated Learning Program 
+\end{flushleft}
+
+\bigskip
+
+\section{Work Experience}
+
+\textbf{Academic Demonstrator -- The University of Melbourne} \newline
+{\footnotesize 2019 - Present}
+\begin{flushleft}
+My role as a demonstrator is to teach introductory concepts in computing.
+My responsiblities also include grading a large number of student's exams and tests. \newline
+\end{flushleft}
+
+\medskip
+
+\textbf{Data Analyst -- WorkSafe Victoria} \newline
+{\footnotesize Summer 2019}
+\begin{flushleft}
+My role at WorkSafe included the validation and cleaning of confidential and public company records. 
+Extra responsibilities included the validation of automated data entry, making heavy use of macros in Excel. \newline
+\end{flushleft} 
+
+\medskip
+
+\textbf{Kitchen Hand -- Soft Cafe} \newline
+{\footnotesize 2015 - Present}
+
+\bigskip
+
+\section{Projects}
+
+\textbf{Airloom -- B.S. Capstone Project} \newline
+{\footnotesize 2019}
+\begin{flushleft}
+For the capstone of my undergraduate degree, we were tasked with creating a service designed to be an online 
+store of multiple families' heirloom, allowing multiple concurrent users to share content and collaborate in a 
+user-friendly environment. This task involved rigorous software modelling, planning and implementation. 
+\end{flushleft}
+
+\bigskip
+
+\section{Awards}
+\textbf{Undergraduate Excellence in Computing and Information Systems Scholarship -- Runner-up} \newline
+{\footnotesize 2018} 
+\begin{flushleft}
+Awarded to an undergraduate student in the Computing and Software Systems major for excellent academic achievements.
+\end{flushleft}
+
+\end{minipage}
+
+\end{document}
