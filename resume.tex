@@ -1,7 +1,7 @@
 \documentclass[10pt]{article}
 \usepackage{url,parskip,tabularx}
 \usepackage{lipsum}
-\usepackage[margin=0.8in]{geometry}
+\usepackage[margin=0.5in]{geometry}
 \usepackage{hyperref}
 \usepackage{titlesec}
 
@@ -13,6 +13,19 @@
     #3 \newline
     \href{mailto:#4}{#4} \newline
     #5 \newline
+}
+
+\newcommand{\skills}[2]{
+    \textbf{#1} \newline
+    #2
+}
+
+\newcommand{\entry}[3]{
+    \textbf{#1} \newline
+    {\footnotesize #2}
+    \begin{flushleft}
+        #3
+    \end{flushleft}
 }
 
 \titleformat{\section}{\Large\raggedright\bfseries}{}{0em}{}[\titlerule]
@@ -39,7 +52,7 @@
 Geelong, Victoria \\
 +61 467 093 491 \\
 \href{mailto:jamesbarnes2505@gmail.com}{jamesbarnes2505@gmail.com} \\
-\href{http://github.com/jamesb2505}{github.com/jamesb2505}
+\href{http://github.com/jimbxb}{github.com/jimbxb}
 \end{center}
 
 \bigskip
@@ -58,20 +71,14 @@ My strengths and interests relate to computing and technology.
 
 \section{Skills}
 
-\textbf{Programming Languages:}
-\begin{flushleft}
-C, Java, Python, JavaScript, Haskell, Prolog, MATLAB, {\fontfamily{cmr}\selectfont \LaTeX{}}, HTML5, CSS. \newline
-\end{flushleft}
+\skills{Programming Languages:}
+{C, Java, Python, JavaScript, Haskell, Prolog, MATLAB, {\fontfamily{cmr}\selectfont \LaTeX{}}, HTML5, CSS. \newline }
 
-\textbf{Software:}
-\begin{flushleft}
-Visual Studio Code, Github, Eclipse, Microsoft Word, Microsoft Excel, Microsoft PowerPoint. \newline
-\end{flushleft}
+\skills{Software:}
+{Visual Studio Code, Github, Eclipse, Microsoft Word, Microsoft Excel, Microsoft PowerPoint. \newline }
 
-\textbf{Natural Languages:}
-\begin{flushleft}
-Native English, introductory-level Chinese (Mandarin).
-\end{flushleft}
+\skills{Natural Languages:}
+{Native English, introductory-level Chinese (Mandarin).}
 
 \medskip
 
@@ -97,8 +104,7 @@ Native English, introductory-level Chinese (Mandarin).
 {The University of Melbourne}
 {Honorary Senior Research Fellow}
 {jebref@po.ljk.id.au}
-{\null}
-
+{}
 
 \end{minipage}\hfill
 \begin{minipage}[t]{.60\textwidth}
@@ -106,69 +112,74 @@ Native English, introductory-level Chinese (Mandarin).
 
 \section{Education}
 
-\textbf{The University of Melbourne, Master of Computer Science} \newline
-{\footnotesize 2020 - Present} \newline
+\entry{The University of Melbourne, Master of Computer Science}
+{2020 - Present}
+{}
+
+\entry{The University of Melbourne, Bachelor of Science}
+{2017 - 2019}
+{
+    \textbf{Major:} Computing and Software Systems \newline
+    \textbf{Grade:} First Class Honours (83.000 WAM) \newline
+}
+
+\entry{Belmont High School}
+{2011 - 2016}
+{Select-Entry Accelerated Learning Program}
 
 \medskip
-
-\textbf{The University of Melbourne, Bachelor of Science} \newline
-{\footnotesize 2017 - 2019} \newline
-\textbf{Major:} Computing and Software Systems \newline
-\textbf{Grade:} First Class Honours (83.000 WAM) \newline
-
-\medskip
-
-\textbf{Belmont High School} \newline
-{\footnotesize 2011 - 2016}
-\begin{flushleft}
-Select-Entry Accelarated Learning Program 
-\end{flushleft}
-
-\bigskip
 
 \section{Work Experience}
 
-\textbf{Academic Demonstrator -- The University of Melbourne} \newline
-{\footnotesize 2019 - 2020}
-\begin{flushleft}
-My role as a demonstrator is to teach introductory concepts in computing.
-My responsiblities also include grading a large number of student's exams and tests. \newline
-\end{flushleft}
+\entry{Academic Demonstrator -- The University of Melbourne}
+{2019 - 2020}
+{
+    My role as a demonstrator is to teach introductory concepts in computing.
+    My responsibilities also include grading a large number of student's exams and tests. \newline
+}
+
+\entry{Data Analyst -- WorkSafe Victoria}
+{Summer 2019}
+{
+    My role at WorkSafe included the validation and cleaning of confidential and public company records. 
+    Extra responsibilities included the validation of automated data entry, making heavy use of macros in Excel. \newline
+}
+
+\entry{Kitchen Hand -- Soft Cafe}
+{2015 - Present}
+{}
 
 \medskip
 
-\textbf{Data Analyst -- WorkSafe Victoria} \newline
-{\footnotesize Summer 2019}
-\begin{flushleft}
-My role at WorkSafe included the validation and cleaning of confidential and public company records. 
-Extra responsibilities included the validation of automated data entry, making heavy use of macros in Excel. \newline
-\end{flushleft} 
+\section{Volunteering}
+
+\entry{Student Representative -- The University of Melbourne}
+{2020, Semester 2 -- Advanced Theoretical Computer Science}
+{
+    Student-teacher liaison responsibilities.
+}
 
 \medskip
-
-\textbf{Kitchen Hand -- Soft Cafe} \newline
-{\footnotesize 2015 - Present}
-
-\bigskip
 
 \section{Projects}
 
-\textbf{Airloom -- B.S. Capstone Project} \newline
-{\footnotesize 2019}
-\begin{flushleft}
-For the capstone of my undergraduate degree, we were tasked with creating a service designed to be an online 
-store of multiple families' heirlooms, allowing multiple concurrent users to share content and collaborate in a 
-user-friendly environment. This task involved rigorous software modelling, planning and implementation. 
-\end{flushleft}
+\entry{Airloom -- B.S. Capstone Project}
+{2019, Semester 2}
+{
+    For the capstone of my undergraduate degree, we were tasked with creating a service designed to be an online 
+    store of multiple families' heirlooms, allowing multiple concurrent users to share content and collaborate in a 
+    user-friendly environment. This task involved rigorous software modelling, planning and implementation. 
+}
 
-\bigskip
+\medskip
 
 \section{Awards}
-\textbf{Undergraduate Excellence in Computing and Information Systems Scholarship -- Runner-up} \newline
-{\footnotesize 2018} 
-\begin{flushleft}
-Awarded to an undergraduate student in the Computing and Software Systems major for excellent academic achievements.
-\end{flushleft}
+
+\entry{Undergraduate Excellence in Computing and Information Systems Scholarship -- Runner-up}
+{2018} 
+{
+    Awarded to an undergraduate student in the Computing and Software Systems major for excellent academic achievements.
+}
 
 \end{minipage}
 
