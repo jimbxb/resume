@@ -1,6 +1,4 @@
-*.aux
-*.fdb_latexmk
-*.fls
-*.log
-*.out
-*.gz
+*
+!.gitignore
+!resume.tex
+!resume.pdf
