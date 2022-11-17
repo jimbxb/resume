@@ -1,7 +1,7 @@
 \documentclass[9pt]{extarticle}
 \usepackage{url,parskip,tabularx}
 \usepackage{lipsum}
-\usepackage[margin=0.3in]{geometry}
+\usepackage[margin=5em]{geometry}
 \usepackage{hyperref}
 \usepackage{titlesec}
 \usepackage{ifthen}
@@ -13,7 +13,7 @@
     {\footnotesize #2} \newline
     #3 \newline
     \href{mailto:#4}{#4} \newline
-    #5 \newline
+    % #5 \newline
 }
 
 \newcommand{\skills}[2]{
@@ -24,12 +24,13 @@
 \newcommand{\entry}[3]{
     \textbf{#1} \newline
     {\footnotesize #2}
-    \ifthenelse{\equal{#3}{\null}}{}
-    {
-        \begin{flushleft}
-            #3
-        \end{flushleft}
-    }
+    % \ifthenelse{\equal{#3}{\null}}{}
+    % {
+    \vspace{.05em}
+    \begin{flushleft}
+        #3
+    \end{flushleft}
+    % }
 }
 
 \titleformat{\section}{\Large\raggedright\bfseries}{}{0em}{}[\titlerule]
@@ -53,7 +54,7 @@
 \bigskip
 
 \begin{center}
-Geelong, Victoria, Australia \\
+Melbourne, Victoria, Australia \\
 \href{mailto:jamesbarnes2505@gmail.com}{jamesbarnes2505@gmail.com} \\
 +61 467 093 491 \\
 \href{http://github.com/jimbxb}{github.com/jimbxb}
@@ -66,11 +67,11 @@ Geelong, Victoria, Australia \\
 \section{Summary}
 
 \begin{flushleft}
-I am a student of computer science, completing a Master of Computer Science at The University of Melbourne. 
-My research project in the Master of Computer Science degrees relates to the design ad implementation of a higher order extension 
-to a programming language called Wybe, and features various novel compiler optimisations.
-Recently, I completed a Bachelor of Science achieving excellent results.
-My strengths and interests relate to computing and technology.
+I am a graduate of the degree of Master of Computer Science and Bachelor of Science at 
+The University of Melbourne with a vast array of experience in academic teaching. 
+My research project in the Master of Computer Science degree related to the design and implementation 
+of a higher-order extension to a programming language, Wybe, and features various novel compiler optimisations.
+This research degree and my studies developed my passion for compilers and code optimisation.
 \end{flushleft} 
 
 \medskip
@@ -78,10 +79,10 @@ My strengths and interests relate to computing and technology.
 \section{Skills}
 
 \skills{Programming Languages:}
-{C, Java, Python, JavaScript, Haskell, Prolog, MATLAB, {\fontfamily{cmr}\selectfont \LaTeX{}}, HTML5, CSS. \newline }
+{Haskell, Python, C, C++, Java, JavaScript, Prolog, MATLAB, {\fontfamily{cmr}\selectfont \LaTeX{}}, HTML5, CSS. \newline }
 
 \skills{Software:}
-{Visual Studio Code, Github, Eclipse, Microsoft Word, Microsoft Excel, Microsoft PowerPoint. \newline }
+{Visual Studio Code, GitHub, Eclipse, Microsoft Word, Microsoft Excel, Microsoft PowerPoint. \newline }
 
 \skills{Natural Languages:}
 {Native English, introductory-level Chinese (Mandarin).}
@@ -90,23 +91,33 @@ My strengths and interests relate to computing and technology.
 
 \section{References}
 
+\reference{Bach Le}
+{The University of Melbourne}
+{Honorary Senior Research Fellow}
+{bach.le@unimelb.edu.au}
+% {}
+\vspace
+
 \reference{Professor Timothy Baldwin}
 {The University of Melbourne}
 {Melbourne Laureate Professor}
 {tb@ldwin.net}
-{+61 3 8344 1363}
+% {+61 3 8344 1363}
+\vspace
 
 \reference{Michael Broeks}
 {WorkSafe Victoria}
-{Workers' Compensation (Premium) \\ -- Product Owner}
+{Workers' Compensation (Premium) \\ --- Product Owner}
 {michael\_broeks@worksafe.vic.gov.au}
-{+61 4 1113 2922}
+% {+61 4 1113 2922}
+\vspace
 
 \reference{Les Kitchen}
 {The University of Melbourne}
 {Honorary Senior Research Fellow}
 {jebref@po.ljk.id.au}
-{}
+% {}
+\vspace
 
 \end{minipage}\hfill
 \begin{minipage}[t]{.65\textwidth}
@@ -114,98 +125,163 @@ My strengths and interests relate to computing and technology.
 
 \section{Education}
 
-\entry{The University of Melbourne, Master of Computer Science}
-{2020 - Present}
+\entry{Master of Computer Science --- The University of Melbourne}
+{2020 -- 2022}
 {
-    \textbf{Topic:} Higher-order Programming in Wybe \newline
-    \textbf{Grade:} First Class Honours (83.000 WAM) \newline
+    \textbf{Thesis:} Higher-Order Programming in Wybe \newline
+    \textbf{Grade:} First Class Honours (87.800 WAM) \newline
 }
 
-\entry{The University of Melbourne, Bachelor of Science}
-{2017 - 2019}
+\entry{Bachelor of Science --- The University of Melbourne}
+{2017 -- 2019}
 {
     \textbf{Major:} Computing and Software Systems \newline
     \textbf{Grade:} First Class Honours (83.000 WAM) \newline
 }
 
 \entry{Belmont High School}
-{2011 - 2016}
+{2011 -- 2016}
 {Select-Entry Accelerated Learning Program}
 
 \medskip
 
 \section{Work Experience}
 
-\entry{Summer Vacation Intern -- Telstra}
-{Summer 2020 - 2021}
+\entry{Summer Vacation Intern --- Telstra}
+{Summer 2020 -- 2021}
 {
-    My role as an intern at Telstra was primarily focused around the the MyTelstra app.
-    I was responsible for the synthesis and maintenance of quality assurance tests, along with general devops 
-    responsibilities. I also developed features on the front-end of the MyTelstra web app. \newline
+    \begin{itemize}
+        \item Synthesised and maintained quality assurance tests for the MyTelstra Android and iOS apps and web app,
+        \item Devops responsibilities relating to the MyTelstra apps, including deployments,
+        \item Developed novel features for the MyTelstra Android and iOS apps and web app,
+        \item Constructed onboarding and walkthrough materials for future employees
+    \end{itemize}
 }
+\vspace{1.5em}
 
-\entry{Academic Tutor \& Demonstrator -- The University of Melbourne}
-{2019 - Present}
+\entry{Head Tutor --- The University of Melbourne}
 {
-    My role as a tutor and demonstrator is to teach introductory concepts in computing, primarily to first year students.
-    Tutors are also responsible for grading a large number of student's exams and assignments. 
-    I also was responsible for facilitating discussion within lectures. \newline
+    2022, Semester 2 --- Models of Computation
 }
-
-\entry{Data Analyst -- WorkSafe Victoria}
-{Summer 2019 - 2020}
 {
-    My role at WorkSafe was the validation and cleaning of confidential and public company records. 
-    Extra responsibilities included the validation of automated data entry, making heavy use of macros in Excel. \newline
+    \begin{itemize}
+        \item Primary point of contact for cohort of over 600 students,
+        \item Developed of weekly tutorial exercises and problem sheets,
+        \item Created assessment materials, including two assignments and the final and supplementary exams,
+        \item Delivered weekly consultation sessions
+    \end{itemize}
 }
+\vspace{1.5em}
 
-\entry{Kitchen Hand -- Soft Cafe}
-{2015 - 2022}
+\entry{Academic Tutor --- The University of Melbourne}
+{
+    2022, Semester 2 --- Foundations of Computing, Models of Computation, Declarative Programming; \\
+    2022, Semester 1 --- Foundations of Computing, Declarative Programming \\
+    2021, Semester 1 --- Foundations of Computing
+}
+{    
+    \begin{itemize}
+        \item Delivered tutorial content to classes of 20 students of varying levels, 
+              including introductory first-year course, final year undergraduate, and postgraduate levels 
+        \item Graded assignments, projects, and exams of over 1500 students,
+        \item Developed tools to ease the process of online materials, including 
+              custom tools for automatically grading certain exam and assignment questions,
+        \item Refactored existing build tools for the creation of subject materials for weekly lectures and 
+              discussion lectures, allowing for streamlined maintenance and future development of novel material
+              for both students and staff members
+    \end{itemize}
+}
+\vspace{1.5em}
+
+\entry{Academic Demonstrator --- The University of Melbourne}
+{
+    2020, Semester 1 --- Foundations of Computing; \\
+    2019, Semester 1 --- Foundations of Computing
+}
+{
+    \begin{itemize}
+        \item Delivered hands-on, one-on-one demonstration sessions, where students ask questions relating 
+              to the course content, assigned weekly workshop tasks, and assessed project work
+    \end{itemize}
+}
+\vspace{1.5em}
+
+\entry{Data Analyst --- WorkSafe Victoria}
+{Summer 2019 -- 2020}
+{
+    \begin{itemize}
+        \item Validated and cleaned confidential and public company records,
+        \item Developed automation tools for the validation of said records
+    \end{itemize} 
+}
+\vspace{1.5em}
+
+\entry{Kitchen Hand --- Soft Cafe}
+{2015 -- 2022}
 {\null}
 
-\medskip
+\end{minipage}
+
+\pagebreak
 
 \section{Projects}
 
-\entry{Scalr.io -- UniHack'21 1st Place}
-{2021}
+\entry{Higher-Order Programming in Wybe --- Master's Research Project}
+{2021 -- 2022}
+{
+    Postgraduate degree research project, developing a higher-order extension to a novel programming language, Wybe.
+    This required the development of novel syntactic constructs, low-level code generation, and novel optimisation methods.
+    The language also features novel features, such as resources (a declarative alternative to global variables), which 
+    required consideration in the design and optimisation of higher-order code.
+
+    The result of this year of work was a thesis detailing my research in the development of this extension, and 
+    benchmark results for the language's performance with the use of the novel optimisations. This work can be found on my GitHub.
+}
+\vspace{1.5em}
+
+\entry{Scalr.io --- UniHack'21 1st Place}
+{March 2021}
 {
     First-prize winning UniHack'21 submission built with my team over the course of 48 hours. 
-    Scalr.io offers a platform where users can upload and utilise machine learning models through a simple to use web interface or API,
-    allowing users with little technical knowledge to utilise machine learning. \newline
+    Scalr.io offers a platform where users can upload and utilise machine learning models through a simple-to-use web interface or API,
+    allowing users with little technical knowledge to utilise machine learning. 
 }
+\vspace{1.5em}
 
 \entry{Airloom -- B.S. Capstone Project}
 {2019, Semester 2}
 {
     Undergraduate degree capstone project, built over the course of a semester. The project involved rigorous software modelling,
     planning, design and implementation of a web-based family heirloom register, making use of various technologies.
+    I was responsible for work across all facets of the software, including the implementation of the front-end, 
+    and the design and implementation of the back-end.
 }
+\vspace{1.5em}
 
 \medskip
 
 \section{Volunteering}
 
-\entry{Student Representative -- The University of Melbourne}
+\entry{Student Representative --- The University of Melbourne}
 {
-    2022, Semester 1 -- Master of Computer Science. \\
+    2022, Semester 1 -- Master of Computer Science \\
     2021, Semester 1 -- Distributed Algorithms (COMP90020) \\
     2020, Semester 2 -- Advanced Theoretical Computer Science (COMP90057)
 }
 {
-    Student-teacher liaison responsibilities.
+    \begin{itemize}
+        \item Student-teacher liaison responsibilities.
+    \end{itemize}
 }
 
 \medskip
 
 \section{Awards}
 
-\entry{Undergraduate Excellence in Computing and Information Systems Scholarship -- Runner-up}
+\entry{Undergraduate Excellence in Computing and Information Systems Scholarship --- Runner-up}
 {2018} 
 {
     Awarded to an undergraduate student in the Computing and Software Systems major for excellent academic achievements.
 }
-
-\end{minipage}
 
 \end{document}
