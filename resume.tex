@@ -3,7 +3,7 @@
 \usepackage{lipsum}
 \usepackage[margin=5em]{geometry}
 \usepackage{hyperref}
-\usepackage{titlesec}
+\usepackage[explicit]{titlesec}
 \usepackage{ifthen}
 
 \renewcommand{\familydefault}{\sfdefault}
@@ -33,7 +33,7 @@
     % }
 }
 
-\titleformat{\section}{\Large\raggedright\bfseries}{}{0em}{}[\titlerule]
+\titleformat{\section}{\Large\raggedright\bfseries}{}{0em}{#1\hspace{0.5em}\hrulefill}
 \titlespacing{\section}{0pt}{3pt}{3pt}
 \titleformat{\subsection}{\Large\raggedright}{}{1em}{}
 \titlespacing{\subsection}{0pt}{3pt}{3pt}
@@ -79,7 +79,7 @@ This research degree and my studies developed my passion for compilers and code 
 \section{Skills}
 
 \skills{Programming Languages:}
-{Haskell, Python, C, C++, Java, JavaScript, Prolog, MATLAB, {\fontfamily{cmr}\selectfont \LaTeX{}}, HTML5, CSS. \newline }
+{Haskell, Python, C, C++, TypeScript, JavaScript, Java, Prolog, Swift, MATLAB, {\fontfamily{cmr}\selectfont \LaTeX{}}, HTML5, CSS. \newline }
 
 \skills{Software:}
 {Visual Studio Code, GitHub, Eclipse, Jupyter Notebook, Word processing, Excel, PowerPoint. \newline }
@@ -125,6 +125,8 @@ This research degree and my studies developed my passion for compilers and code 
 % {jebref@po.ljk.id.au}
 % % {}
 % \vspace
+
+{\footnotesize Further available upon request}
 
 \end{minipage}\hfill
 \begin{minipage}[t]{.65\textwidth}
@@ -238,8 +240,10 @@ This research degree and my studies developed my passion for compilers and code 
 {
     Postgraduate degree research project, developing a higher-order extension to a novel programming language, Wybe.
     This required the development of novel syntactic constructs, low-level code generation, and novel optimisation methods.
-    The language also features novel features, such as resources (a declarative alternative to global variables), which 
-    required consideration in the design and optimisation of higher-order code.
+    The language also features novel features, such as resources -- a declarative alternative to global variables, which 
+    required consideration in the design and optimisation of higher-order code. 
+    The Wybe compiler uses a novel intermediate representation, LPVM, based upon a Horn-clause representation of a program,
+    and finally the LLVM intermediate representation.
 
     The result of this year of work was a thesis detailing my research in the development of this extension, and 
     benchmark results for the language's performance with the use of the novel optimisations. This thesis can be found on my GitHub.
@@ -278,6 +282,7 @@ This research degree and my studies developed my passion for compilers and code 
 {
     \begin{itemize}
         \item Student-teacher liaison responsibilities.
+        \item Conducted student feedback surveys, delivering feedback to teaching and coordinating staff members.
     \end{itemize}
 }
 
