@@ -1,299 +1,240 @@
-\documentclass[9pt]{extarticle}
-\usepackage{url,parskip,tabularx}
-\usepackage{lipsum}
-\usepackage[margin=5em]{geometry}
-\usepackage{hyperref}
-\usepackage[explicit]{titlesec}
-\usepackage{ifthen}
+\documentclass[a4paper,11pt]{article}
+\RequirePackage[T1]{fontenc}
 
-\renewcommand{\familydefault}{\sfdefault}
+\usepackage{times}
+\usepackage{calc}
+\usepackage[shortcuts]{extdash}
 
-\newcommand{\reference}[5]{
-    \textbf{#1} \newline
-    {\footnotesize #2} \newline
-    #3 \newline
-    \href{mailto:#4}{#4} \newline
-    % #5 \newline
-}
+\usepackage{graphicx} 
 
-\newcommand{\skills}[2]{
-    \textbf{#1} \newline
-    #2
-}
+\reversemarginpar
 
-\newcommand{\entry}[3]{
-    \textbf{#1} \newline
-    {\footnotesize #2}
-    % \ifthenelse{\equal{#3}{\null}}{}
-    % {
-    \vspace{.05em}
-    \begin{flushleft}
-        #3
-    \end{flushleft}
-    % }
-}
+\usepackage[paper=letterpaper,
+            marginparwidth=1.1in,     % Length of section titles
+            marginparsep=.075in,       % Space between titles and text
+            margin=0.5in,               % 1 inch margins
+            tmargin=0.65in,
+            includemp]{geometry}
 
-\titleformat{\section}{\Large\raggedright\bfseries}{}{0em}{#1\hspace{0.5em}\hrulefill}
-\titlespacing{\section}{0pt}{3pt}{3pt}
-\titleformat{\subsection}{\Large\raggedright}{}{1em}{}
-\titlespacing{\subsection}{0pt}{3pt}{3pt}
+\setlength{\parindent}{0in}
+
+\usepackage[shortlabels]{enumitem}
+
+\usepackage{fancyhdr,lastpage}
+\pagestyle{fancy}
+\pagestyle{empty}      % Uncomment this to get rid of page numbers
+\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+\fancyfootoffset{\marginparsep+\marginparwidth}
+\newlength{\footpageshift}
+\setlength{\footpageshift}
+          {0.5\textwidth+0.5\marginparsep+0.5\marginparwidth-2in}
+\lfoot{\hspace{\footpageshift}%
+       \parbox{4in}{\, \hfill %
+                    \arabic{page} of \protect\pageref*{LastPage} % +LP
+%                    \arabic{page}                               % -LP
+                    \hfill \,}}
+
+\usepackage{color,hyperref}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.3}
+\hypersetup{colorlinks,breaklinks,
+            linkcolor=darkblue,urlcolor=darkblue,
+            anchorcolor=darkblue,citecolor=darkblue}
+
+\renewcommand{\section}[1]{\pagebreak[3]%
+    \vspace{1.3\baselineskip}%
+    \phantomsection\addcontentsline{toc}{section}{#1}%
+    \noindent\llap{\scshape\smash{\parbox[t]{\marginparwidth}{\hyphenpenalty=10000\raggedright #1}}}%
+    \vspace{-\baselineskip}\par}
+
+\newcommand*\fixendlist[1]{%
+    \expandafter\let\csname preFixEndListend#1\expandafter\endcsname\csname end#1\endcsname
+    \expandafter\def\csname end#1\endcsname{\csname preFixEndListend#1\endcsname\vspace{-0.6\baselineskip}}}
+
+\let\originalItem\item
+\newcommand*\fixouterlist[1]{%
+    \expandafter\let\csname preFixOuterList#1\expandafter\endcsname\csname #1\endcsname
+    \expandafter\def\csname #1\endcsname{\let\oldItem\item\def\item{\pagebreak[2]\oldItem}\csname preFixOuterList#1\endcsname}
+    \expandafter\let\csname preFixOuterListend#1\expandafter\endcsname\csname end#1\endcsname
+    \expandafter\def\csname end#1\endcsname{\let\item\oldItem\csname preFixOuterListend#1\endcsname}}
+\newcommand*\fixinnerlist[1]{%
+    \expandafter\let\csname preFixInnerList#1\expandafter\endcsname\csname #1\endcsname
+    \expandafter\def\csname #1\endcsname{\let\oldItem\item\let\item\originalItem\csname preFixInnerList#1\endcsname}
+    \expandafter\let\csname preFixInnerListend#1\expandafter\endcsname\csname end#1\endcsname
+    \expandafter\def\csname end#1\endcsname{\csname preFixInnerListend#1\endcsname\let\item\oldItem}}
+
+\newlist{outerlist}{itemize}{3}
+    \setlist[outerlist]{label=\enskip\textbullet,leftmargin=*}
+    \fixendlist{outerlist}
+    \fixouterlist{outerlist}
+
+\newlist{lonelist}{itemize}{3}
+    \setlist[lonelist]{label=\enskip\textbullet,leftmargin=*,partopsep=0pt,topsep=0pt}
+    \fixendlist{lonelist}
+    \fixouterlist{lonelist}
+
+\newlist{innerlist}{itemize}{3}
+    \setlist[innerlist]{label=\enskip\textbullet,leftmargin=*,rightmargin=3em,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt}
+    \fixinnerlist{innerlist}
+
+\newlist{loneinnerlist}{itemize}{3}
+    \setlist[loneinnerlist]{label=\enskip\textbullet,leftmargin=*,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt}
+    \fixendlist{loneinnerlist}
+    \fixinnerlist{loneinnerlist}
+
+\newcommand{\blankline}{\quad\pagebreak[3]}
+\newcommand{\halfblankline}{\quad\vspace{-0.5\baselineskip}\pagebreak[3]}
+
+\usepackage{doi}
+\usepackage{url}
+
+\urlstyle{same}
+\providecommand*\emaillink[1]{\nolinkurl{#1}}
+\providecommand*\email[1]{\href{mailto:#1}{\emaillink{#1}}}
 
 \begin{document}
 
-\pagestyle{empty} 
+ {\hspace*{-\marginparsep minus \marginparwidth}%
+\begin{minipage}[t]{\textwidth+\marginparwidth+\marginparsep}%
+\centering
+{\LARGE \bfseries {James Barnes}}\\
+\vspace{0.2cm}
 
-\begin{minipage}[t]{.31\textwidth}
-\vspace*{0pt}
+\href{mailto:jamesbarnes2505@gmail.com}{\texttt{jamesbarnes2505@gmail.com}}\quad\textbullet \quad (+61) 463 093 491 \\
+\href{https://jimbxb.github.io/portfolio}{\texttt{https://jimbxb.github.io}}
+\rule{\columnwidth}{1.2pt}
+\end{minipage}}
+ 
+\vspace{0.2cm}
 
-\begin{center}
-{\huge \bfseries James Barnes\par}
-\end{center}
+\section{Experience}
 
-\bigskip
-\hrule
-\bigskip
+\textbf{Software Engineering Specialist},
+{Telstra}
+\hfill {2023 -- \emph{present}}
+\begin{innerlist}
+  \item Developed a novel, declarative, test-automation framework to perform end-to-end testing of a large CRM system,
+  \item Refactored existing test-automation system and associated APIs for ease of development,
+  \item Translated business requirements into new products and orchestration plans on a large CRM system,
+  \item Developed and maintained billing-related Java SpringBoot APIs
+\end{innerlist}
 
-\begin{center}
-Melbourne, Victoria, Australia \\
-\href{mailto:jamesbarnes2505@gmail.com}{jamesbarnes2505@gmail.com} \\
-+61 467 093 491 \\
-\href{http://github.com/jimbxb}{github.com/jimbxb}
-\end{center}
+\vspace{0.3cm}
 
-\bigskip
-\hrule
-\bigskip
+\textbf{Software Engineering Intern},
+{Telstra}
+\hfill {\emph{Summer} 2020 -- 2021}
+\begin{innerlist}
+  \item Developed novel features for the MyTelstra apps,
+  \item DevOps responsibilities relating to the MyTelstra apps, including deployments,
+  \item Created quality assurance tests for the MyTelstra app (Android, Android, web),
+  \item Constructed onboarding and walkthrough materials for future employees
+\end{innerlist}
 
-\section{Summary}
+\vspace{0.3cm}
 
-\begin{flushleft}
-I am a graduate of the degree of Master of Computer Science and Bachelor of Science at 
-The University of Melbourne with a vast array of experience in academic teaching. 
-My research project in the Master of Computer Science degree related to the design and implementation 
-of a higher-order extension to a programming language, Wybe, and features various novel compiler optimisations.
-This research degree and my studies developed my passion for compilers and code optimisation.
-\end{flushleft} 
-
-\medskip
-
-\section{Skills}
-
-\skills{Programming Languages:}
-{Haskell, Python, C, C++, TypeScript, JavaScript, Java, Prolog, Swift, MATLAB, {\fontfamily{cmr}\selectfont \LaTeX{}}, HTML5, CSS. \newline }
-
-\skills{Software:}
-{Visual Studio Code, GitHub, Eclipse, Jupyter Notebook, Word processing, Excel, PowerPoint. \newline }
-
-\skills{Natural Languages:}
-{Native-level English, introductory-level Mandarin, introductory-level Indonesian.}
-
-\medskip
-
-\section{References}
-
-\reference{Dr Peter Schachte}
+\textbf{Academic Tutor \& Demonstrator},
 {The University of Melbourne}
-{Senior Lecturer, research supervisor}
-{schachte@unimelb.edu.au}
-% {}
-\vspace
+\hfill {2019 -- \emph{present}}
+\begin{innerlist}
+  \item Tutored content on introductory programming, declarative programming, and theoretical computer science,
+  \item Delivered tutorial content to postgraduate, first-year \& final-year undergraduate students,
+  \item Graded assignments, projects, and exams of over 1500 students,
+  \item Developed build tools to automate the creation of teaching materials,
+  \item Delivered hands-on, one-on-one demonstration sessions
+\end{innerlist}
 
-\reference{Dr Xuan-Bach Le}
+\vspace{0.3cm}
+
+\textbf{Head Academic Tutor},
 {The University of Melbourne}
-{ARC DECRA Fellow}
-{bach.le@unimelb.edu.au}
-% {}
-\vspace
+\hfill {2022}
+\begin{innerlist}
+  \item Created assignment, tutorial, and exam material on theoretical computer science,
+  \item Assisted in the delivery of course materials in a lecture format
+\end{innerlist}
 
-\reference{Professor Timothy Baldwin}
+\vspace{0.3cm}
+
+\textbf{Data Analyst},
+{WorkSafe}
+\hfill {\emph{Summer} 2019 -- 2020}
+\begin{innerlist}
+  \item Developed automated tools to scrape, clean, and validate confidential and public company records
+\end{innerlist}
+
+
+ \section{Education}
+
+\textbf{Master of Computer Science},
 {The University of Melbourne}
-{Melbourne Laureate Professor}
-{tb@ldwin.net}
-% {+61 3 8344 1363}
-\vspace
+\hfill {2020 -- 2022} 
 
-\reference{Michael Broeks}
-{WorkSafe Victoria}
-{Workers' Compensation (Premium) \\ --- Product Owner}
-{michael\_broeks@worksafe.vic.gov.au}
-% {+61 4 1113 2922}
-\vspace
+\begin{innerlist}
+  \item \textbf{Grade:} First Class Honours (87.800 WAM) 
+  \item \textbf{Thesis:} Higher-Order Programming in Wybe \emph{(\href{https://www.github.com/jimbxb/mcs-project}{link})}
+  \item Developed a higher-order extension to an existing language, Wybe
+  \item Formalised the Wybe type system
+\end{innerlist}
 
-% \reference{Les Kitchen}
-% {The University of Melbourne}
-% {Honorary Senior Research Fellow}
-% {jebref@po.ljk.id.au}
-% % {}
-% \vspace
+\vspace{0.3cm}
 
-{\footnotesize Further available upon request}
+\textbf{Bachelor of Science},
+{The University of Melbourne}
+\hfill {2017 -- 2019}
 
-\end{minipage}\hfill
-\begin{minipage}[t]{.65\textwidth}
-\vspace*{0pt}
-
-\section{Education}
-
-\entry{Master of Computer Science --- The University of Melbourne}
-{2020 -- 2022}
-{
-    \textbf{Thesis:} Higher-Order Programming in Wybe \newline
-    \textbf{Grade:} First Class Honours (87.800 WAM) \newline
-}
-
-\entry{Bachelor of Science --- The University of Melbourne}
-{2017 -- 2019}
-{
-    \textbf{Major:} Computing and Software Systems \newline
-    \textbf{Grade:} First Class Honours (83.000 WAM) \newline
-}
-
-\entry{Belmont High School}
-{2011 -- 2016}
-{Select-Entry Accelerated Learning Program}
-
-\medskip
-
-\section{Work Experience}
-
-\entry{Summer Vacation Intern --- Telstra}
-{Summer 2020 -- 2021}
-{
-    \begin{itemize}
-        \item Synthesised and maintained quality assurance tests for the MyTelstra Android and iOS apps and web app,
-        \item Devops responsibilities relating to the MyTelstra apps, including deployments,
-        \item Developed novel features for the MyTelstra Android and iOS apps and web app,
-        \item Constructed onboarding and walkthrough materials for future employees
-    \end{itemize}
-}
-\vspace{1.5em}
-
-\entry{Head Tutor --- The University of Melbourne}
-{
-    2022, Semester 2 --- Models of Computation
-}
-{
-    \begin{itemize}
-        \item Primary point of contact for cohort of over 600 students,
-        \item Created assessment materials, including two assignments and the final and supplementary exams,
-        \item Developed weekly tutorial exercises and problem sheets,
-        \item Delivered weekly consultation sessions
-    \end{itemize}
-}
-\vspace{1.5em}
-
-\entry{Academic Tutor --- The University of Melbourne}
-{
-    2022, Semester 2 --- Foundations of Computing, Models of Computation, Declarative Programming; \\
-    2022, Semester 1 --- Foundations of Computing, Declarative Programming \\
-    2021, Semester 1 --- Foundations of Computing
-}
-{    
-    \begin{itemize}
-        \item Delivered tutorial content to classes of 20 students of varying levels, 
-              including introductory first-year course, final year undergraduate, and postgraduate levels 
-        \item Graded assignments, projects, and exams of over 1500 students,
-        \item Developed tools to ease the process of online materials, including 
-              custom tools for automatically grading certain exam and assignment questions,
-        \item Refactored existing build tools for the creation of subject materials for weekly lectures and 
-              discussion lectures, allowing for streamlined maintenance and future development of novel material
-              for both students and staff members
-    \end{itemize}
-}
-\vspace{1.5em}
-
-\entry{Academic Demonstrator --- The University of Melbourne}
-{
-    2020, Semester 1 --- Foundations of Computing; \\
-    2019, Semester 1 --- Foundations of Computing
-}
-{
-    \begin{itemize}
-        \item Delivered hands-on, one-on-one demonstration sessions, where students ask questions relating 
-              to the course content, assigned weekly workshop tasks, and assessed project work
-    \end{itemize}
-}
-\vspace{1.5em}
-
-\entry{Data Analyst --- WorkSafe Victoria}
-{Summer 2019 -- 2020}
-{
-    \begin{itemize}
-        \item Validated and cleaned confidential and public company records,
-        \item Developed automation tools for the validation of said records
-    \end{itemize} 
-}
-\vspace{1.5em}
-
-\entry{Kitchen Hand --- Soft Cafe}
-{2015 -- 2022}
-{\null}
-
-\end{minipage}
-
-\pagebreak
-
-\section{Projects}
-
-\entry{Higher-Order Programming in Wybe --- Master's Research Project}
-{2021 -- 2022}
-{
-    Postgraduate degree research project, developing a higher-order extension to a novel programming language, Wybe.
-    This required the development of novel syntactic constructs, low-level code generation, and novel optimisation methods.
-    The language also features novel features, such as resources -- a declarative alternative to global variables, which 
-    required consideration in the design and optimisation of higher-order code. 
-    The Wybe compiler uses a novel intermediate representation, LPVM, based upon a Horn-clause representation of a program,
-    and finally the LLVM intermediate representation.
-
-    The result of this year of work was a thesis detailing my research in the development of this extension, and 
-    benchmark results for the language's performance with the use of the novel optimisations. This thesis can be found on my GitHub.
-}
-\vspace{1.5em}
-
-\entry{Scalr.io --- UniHack'21 1st Place}
-{March 2021}
-{
-    First-prize winning UniHack'21 submission built with my team over the course of 48 hours. 
-    Scalr.io offers a platform where users can upload and utilise machine learning models through a simple-to-use web interface or API,
-    allowing users with little technical knowledge to utilise machine learning. 
-}
-\vspace{1.5em}
-
-\entry{Airloom -- B.S. Capstone Project}
-{2019, Semester 2}
-{
-    Undergraduate degree capstone project, built over the course of a semester. The project involved rigorous software modelling,
-    planning, design and implementation of a web-based family heirloom register, making use of various technologies.
-    I was responsible for work across all facets of the software, including the implementation of the front-end, 
-    and the design and implementation of the back-end.
-}
-\vspace{1.5em}
-
-\medskip
-
-\section{Volunteering}
-
-\entry{Student Representative --- The University of Melbourne}
-{
-    2022, Semester 1 -- Master of Computer Science, \\
-    2021, Semester 1 -- Distributed Algorithms, \\
-    2020, Semester 2 -- Advanced Theoretical Computer Science
-}
-{
-    \begin{itemize}
-        \item Student-teacher liaison responsibilities.
-        \item Conducted student feedback surveys, delivering feedback to teaching and coordinating staff members.
-    \end{itemize}
-}
-
-\medskip
+\begin{innerlist}
+  \item \textbf{Grade:} First Class Honours (83.000 WAM)
+  \item \textbf{Major:} Computing and Software Systems
+  \item Created a web-based family heirloom register, allowing for users to upload and share their family heirlooms with other users
+\end{innerlist}
 
 \section{Awards}
 
-\entry{Undergraduate Excellence in Computing and Information Systems Scholarship --- Runner-up}
-{2018} 
-{
-    Awarded to an undergraduate student in the Computing and Software Systems major for excellent academic achievements.
-}
+\textbf{UniHack'21 First Place}, Scalr.io \emph{(\href{https://devpost.com/software/scalr-ht4loi}{link})}
+\hfill {2021}
+
+\begin{innerlist}
+  \item First-prize winning UniHack'21 submission built with a team of five in 48 hours,
+  \item Created a low-code platform for users to upload existing machine learning models, automatically creating REST endpoints that serve as an interface to said models,
+  \item Scalable infrastructure that expands with users' requirements
+  \item Developed a basic UI for the platform
+\end{innerlist}
+
+% \vspace{0.3cm}
+
+% \textbf{Undergraduate Excellence in Computing and Information Systems Scholarship (Runner-up)}, 
+% \hfill{2018}
+% \begin{innerlist}
+%   \item Awarded to an undergraduate student in the Computing and Software Systems major for excellent academic achievements.
+% \end{innerlist}
+
+% \pagebreak
+
+\section{Skills}
+
+\textbf{Technical}
+JavaScript (Node.js), TypeScript, Python (Pytorch, Numpy), \\Java (Maven, SpringBoot), C, C++, Haskell, Prolog, Git (GitHub, GitLab), Bamboo, \\ Postman, Cucumber (Gherkin), agile methodologies (JIRA), SalesForce (Apex, Vlocity)
+
+\vspace{0.3cm}
+
+\textbf{Languages}
+English (\emph{native}), Mandarin Chinese (\emph{basic}), Indonesian (\emph{basic})
+
+\section{Volunteering}
+\textbf{Student Representative},
+Master of Computer Science
+\hfill {2022}
+
+\vspace{0.3cm}
+
+\textbf{Student Representative},
+Distributed Algorithms
+\hfill {2021}
+
+\vspace{0.3cm}
+
+\textbf{Student Representative},
+Advanced Theoretical Computer Science
+\hfill {2020}
 
 \end{document}
