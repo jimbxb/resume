@@ -12,8 +12,8 @@
 \usepackage[paper=letterpaper,
             marginparwidth=1.1in,     % Length of section titles
             marginparsep=.075in,       % Space between titles and text
-            margin=0.5in,               % 1 inch margins
-            tmargin=0.65in,
+            margin=0.35in,              
+            tmargin=0.35in,
             includemp]{geometry}
 
 \setlength{\parindent}{0in}
@@ -35,13 +35,13 @@
                     \hfill \,}}
 
 \usepackage{color,hyperref}
-\definecolor{darkblue}{rgb}{0.0,0.0,0.3}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.2}
 \hypersetup{colorlinks,breaklinks,
             linkcolor=darkblue,urlcolor=darkblue,
             anchorcolor=darkblue,citecolor=darkblue}
-
+\hyphenpenalty=10000
 \renewcommand{\section}[1]{\pagebreak[3]%
-    \vspace{1.3\baselineskip}%
+    \vspace{0.5\baselineskip}%
     \phantomsection\addcontentsline{toc}{section}{#1}%
     \noindent\llap{\scshape\smash{\parbox[t]{\marginparwidth}{\hyphenpenalty=10000\raggedright #1}}}%
     \vspace{-\baselineskip}\par}
@@ -93,18 +93,20 @@
 
 \begin{document}
 
- {\hspace*{-\marginparsep minus \marginparwidth}%
+ {\hspace*{-\marginparwidth}%
 \begin{minipage}[t]{\textwidth+\marginparwidth+\marginparsep}%
 \centering
 {\LARGE \bfseries {James Barnes}}\\
 \vspace{0.2cm}
 
-\href{mailto:jamesbarnes2505@gmail.com}{\texttt{jamesbarnes2505@gmail.com}}\quad\textbullet \quad (+61) 463 093 491 \\
+\href{mailto:jamesbarnes2505@gmail.com}{\texttt{jamesbarnes2505@gmail.com}}\quad\textbullet \quad 
+(+61) 463 093 491 
+\quad\textbullet \quad 
 \href{https://jimbxb.github.io/portfolio}{\texttt{https://jimbxb.github.io}}
-\rule{\columnwidth}{1.2pt}
+\rule{\columnwidth plus \marginparsep}{1.2pt}
 \end{minipage}}
  
-\vspace{0.2cm}
+\vspace{0.3cm}
 
 \section{Experience}
 
@@ -112,25 +114,25 @@
 {Telstra}
 \hfill {2023 -- \emph{present}}
 \begin{innerlist}
-  \item Developed a novel, declarative, test-automation framework to perform end-to-end testing of a large CRM system,
+  \item Developed a novel, declarative, end-to-end, test-automation framework for a large CRM system,
   \item Refactored existing test-automation system and associated APIs for ease of development,
   \item Translated business requirements into new products and orchestration plans on a large CRM system,
-  \item Developed billing-related Java Spring Boot APIs
+  \item Developed billing- and orchestration-related Java Spring Boot APIs
 \end{innerlist}
 
-\vspace{0.3cm}
+\vspace{0.2cm}
 
 \textbf{Software Engineering Intern},
 {Telstra}
 \hfill {\emph{Summer} 2020 -- 2021}
 \begin{innerlist}
-  \item Developed novel features for the MyTelstra apps,
+  \item Developed new features for the MyTelstra apps,
   \item DevOps responsibilities relating to the MyTelstra apps, including deployments,
-  \item Created quality assurance tests for the MyTelstra app (Android, iOS, web),
-  \item Constructed onboarding and walkthrough materials for future employees
+  \item Created quality assurance tests for the MyTelstra app (Android, iOS, web)%,
+  \i%tem Constructed onboarding and walkthrough materials for future employees
 \end{innerlist}
 
-\vspace{0.3cm}
+\vspace{0.2cm}
 
 \textbf{Academic Tutor \& Demonstrator},
 {The University of Melbourne}
@@ -139,11 +141,11 @@
   \item Tutored content on introductory programming (Python), declarative programming (Haskell, Prolog), and theoretical computer science (DFAs, NFAs, regex, parsing, Turing machines, computability),
   \item Delivered tutorial content to postgraduate, first-year \& final-year undergraduate students,
   \item Graded assignments, projects, and exams of over 1500 students,
-  \item Developed build tools to automate the creation of teaching materials,
-  \item Delivered hands-on, one-on-one demonstration sessions
+  \item Developed build tools to automate the creation of teaching materials%,
+  % \item Delivered hands-on, one-on-one demonstration sessions
 \end{innerlist}
 
-\vspace{0.3cm}
+\vspace{0.2cm}
 
 \textbf{Head Academic Tutor},
 {The University of Melbourne}
@@ -153,17 +155,24 @@
   \item Assisted in the delivery of course materials in a lecture format
 \end{innerlist}
 
-\vspace{0.3cm}
+\vspace{0.2cm}
 
 \textbf{Data Analyst},
-{WorkSafe}
+{WorkSafe Victoria}
 \hfill {\emph{Summer} 2019 -- 2020}
 \begin{innerlist}
-  \item Developed automated tools to scrape, clean, and validate thousands of confidential and public company records
+  \item Developed automated tools to scrape, clean, and validate confidential and public company records
 \end{innerlist}
 
+\section{Technical Skills}
 
- \section{Education}
+Java (Maven, Spring, Spring Boot), JavaScript (Node.js), TypeScript, \\ 
+Python (Pytorch, Numpy), C, C++, Haskell, Prolog, Git (GitHub, GitLab), Bamboo, \\ 
+Postman, Cucumber (Gherkin), agile methodologies (JIRA), SalesForce (Apex, Vlocity)
+
+\vspace{0.2cm}
+
+\section{Education}
 
 \textbf{Master of Computer Science},
 {The University of Melbourne}
@@ -177,7 +186,7 @@
   \item Benchmarked the performance of the language extension against the existing language, showing negligible performance overhead
 \end{innerlist}
 
-\vspace{0.3cm}
+\vspace{0.2cm}
 
 \textbf{Bachelor of Science},
 {The University of Melbourne}
@@ -190,7 +199,7 @@
   \item Produced formal design documentation
 \end{innerlist}
 
-\newpage
+% \newpage
 
 \section{Awards}
 
@@ -201,10 +210,10 @@
   \item First-prize winning UniHack'21 submission built with a team of five in 48 hours,
   \item Created a low-code platform for users to upload existing machine learning models, automatically creating REST endpoints that serve as an interface to said models,
   \item Scalable infrastructure that expands with users' requirements
-  \item Developed a basic UI for the platform
+  \item Simple web-based UI
 \end{innerlist}
 
-% \vspace{0.3cm}
+% \vspace{0.2cm}
 
 % \textbf{Undergraduate Excellence in Computing and Information Systems Scholarship (Runner-up)}, 
 % \hfill{2018}
@@ -214,33 +223,18 @@
 
 % \pagebreak
 
-\section{Skills}
-
-\textbf{Technical}
-Java (Maven, Spring, Spring Boot), JavaScript (Node.js), TypeScript, \\ 
-Python (Pytorch, Numpy), C, C++, Haskell, Prolog, Git (GitHub, GitLab), Bamboo, \\ 
-Postman, Cucumber (Gherkin), agile methodologies (JIRA), SalesForce (Apex, Vlocity)
-
-\vspace{0.3cm}
-
-\textbf{Languages}
+\section{Languages}
 English (\emph{native}), Mandarin Chinese (\emph{basic}), Indonesian (\emph{basic})
 
 \section{Volunteering}
-\textbf{Student Representative},
+\textbf{Student Representative:}
 Master of Computer Science
 \hfill {2022}
 
-\vspace{0.3cm}
+\vspace{0.2cm}
 
-\textbf{Student Representative},
-Distributed Algorithms
-\hfill {2021}
-
-\vspace{0.3cm}
-
-\textbf{Student Representative},
-Advanced Theoretical Computer Science
-\hfill {2020}
+\textbf{Student Representative:}
+Distributed Algorithms \& Advanced Theoretical Computer Science
+\hfill {2020 -- 2021}
 
 \end{document}
